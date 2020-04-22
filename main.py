@@ -10,14 +10,12 @@ import unittest
 """
 
 def dict_from_lists(key_list, value_list):
-    delta = len(key_list) - len(value_list)
 
-    if delta > 0:
-        for i in range(0, delta):
-            value_list.append(None)
+    for i in range(0, len(key_list) - len(value_list)):
+        value_list.append(None)
+        
+    return dict(zip(key_list, value_list))
 
-    dictionary = dict(zip(key_list, value_list))
-    return dictionary
 
 
 class test(unittest.TestCase):
